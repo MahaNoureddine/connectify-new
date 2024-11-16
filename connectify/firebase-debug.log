@@ -1,0 +1,93 @@
+[debug] [2024-11-12T15:01:10.600Z] ----------------------------------------------------------------------
+[debug] [2024-11-12T15:01:10.603Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\noure\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init functions
+[debug] [2024-11-12T15:01:10.603Z] CLI Version:   13.22.1
+[debug] [2024-11-12T15:01:10.604Z] Platform:      win32
+[debug] [2024-11-12T15:01:10.604Z] Node Version:  v18.20.4
+[debug] [2024-11-12T15:01:10.606Z] Time:          Tue Nov 12 2024 16:01:10 GMT+0100 (heure normale d’Afrique de l’Ouest)
+[debug] [2024-11-12T15:01:10.606Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-11-12T15:01:10.611Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2024-11-12T15:01:10.709Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-11-12T15:01:10.710Z] > authorizing via signed-in user (mahanoureddine29@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\hedii_mahaa\connectify
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+  * You are initializing within an existing Firebase project directory
+
+[debug] [2024-11-12T15:01:11.632Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2024-11-12T15:01:11.633Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-11-12T15:01:31.227Z] Using project from CLI flag: connectify-12
+[debug] [2024-11-12T15:01:31.228Z] Checked if tokens are valid: false, expires at: 1729524089979
+[debug] [2024-11-12T15:01:31.228Z] Checked if tokens are valid: false, expires at: 1729524089979
+[debug] [2024-11-12T15:01:31.228Z] > refreshing access token with scopes: []
+[debug] [2024-11-12T15:01:31.229Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-11-12T15:01:31.229Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-11-12T15:01:31.704Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-11-12T15:01:31.704Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-11-12T15:01:31.715Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/connectify-12 [none]
+[debug] [2024-11-12T15:01:32.787Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/connectify-12 200
+[debug] [2024-11-12T15:01:32.787Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/connectify-12 {"projectId":"connectify-12","projectNumber":"834273509342","displayName":"Connectify","name":"projects/connectify-12","resources":{"hostingSite":"connectify-12","realtimeDatabaseInstance":"connectify-12-default-rtdb"},"state":"ACTIVE","etag":"1_f0e2209b-b373-4675-b03e-7b0ac8b2dc6d"}
+[info] i  Using project connectify-12 (Connectify) 
+[info] 
+=== Functions Setup
+[debug] [2024-11-12T15:01:32.794Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-11-12T15:01:32.795Z] > authorizing via signed-in user (mahanoureddine29@gmail.com)
+[debug] [2024-11-12T15:01:32.795Z] [iam] checking project connectify-12 for permissions ["firebase.projects.get"]
+[debug] [2024-11-12T15:01:32.795Z] Checked if tokens are valid: true, expires at: 1731427290705
+[debug] [2024-11-12T15:01:32.795Z] Checked if tokens are valid: true, expires at: 1731427290705
+[debug] [2024-11-12T15:01:32.795Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/connectify-12:testIamPermissions [none]
+[debug] [2024-11-12T15:01:32.795Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/connectify-12:testIamPermissions x-goog-quota-user=projects/connectify-12
+[debug] [2024-11-12T15:01:32.795Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/connectify-12:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-11-12T15:01:36.522Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/connectify-12:testIamPermissions 200
+[debug] [2024-11-12T15:01:36.522Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/connectify-12:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-11-12T15:01:36.522Z] Checked if tokens are valid: true, expires at: 1731427290705
+[debug] [2024-11-12T15:01:36.523Z] Checked if tokens are valid: true, expires at: 1731427290705
+[debug] [2024-11-12T15:01:36.523Z] Checked if tokens are valid: true, expires at: 1731427290705
+[debug] [2024-11-12T15:01:36.523Z] Checked if tokens are valid: true, expires at: 1731427290705
+[debug] [2024-11-12T15:01:36.523Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/connectify-12/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-11-12T15:01:36.523Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/connectify-12/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/connectify-12
+[debug] [2024-11-12T15:01:36.524Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/connectify-12/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-11-12T15:01:36.524Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/connectify-12/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/connectify-12
+[debug] [2024-11-12T15:01:38.924Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/connectify-12/services/cloudfunctions.googleapis.com 200
+[debug] [2024-11-12T15:01:38.924Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/connectify-12/services/cloudfunctions.googleapis.com [omitted]
+[debug] [2024-11-12T15:01:38.924Z] Checked if tokens are valid: true, expires at: 1731427290705
+[debug] [2024-11-12T15:01:38.924Z] Checked if tokens are valid: true, expires at: 1731427290705
+[debug] [2024-11-12T15:01:38.925Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/connectify-12/services/cloudfunctions.googleapis.com:enable [none]
+[debug] [2024-11-12T15:01:38.925Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/connectify-12/services/cloudfunctions.googleapis.com:enable x-goog-quota-user=projects/connectify-12
+[debug] [2024-11-12T15:01:39.529Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/connectify-12/services/runtimeconfig.googleapis.com 200
+[debug] [2024-11-12T15:01:39.529Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/connectify-12/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-11-12T15:01:40.892Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/connectify-12/services/cloudfunctions.googleapis.com:enable 200
+[debug] [2024-11-12T15:01:40.892Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/connectify-12/services/cloudfunctions.googleapis.com:enable [omitted]
+[debug] [2024-11-12T15:01:50.894Z] Checked if tokens are valid: true, expires at: 1731427290705
+[debug] [2024-11-12T15:01:50.895Z] Checked if tokens are valid: true, expires at: 1731427290705
+[debug] [2024-11-12T15:01:50.895Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/connectify-12/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-11-12T15:01:50.895Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/connectify-12/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/connectify-12
+[debug] [2024-11-12T15:01:52.318Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/connectify-12/services/cloudfunctions.googleapis.com 200
+[debug] [2024-11-12T15:01:52.318Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/connectify-12/services/cloudfunctions.googleapis.com [omitted]
+[info] Let's create a new codebase for your functions.
+[info] A directory corresponding to the codebase will be created in your project
+[info] with sample code pre-configured.
+
+[info] See https://firebase.google.com/docs/functions/organize-functions for
+[info] more information on organizing your functions using codebases.
+
+[info] Functions can be deployed with firebase deploy.
+
