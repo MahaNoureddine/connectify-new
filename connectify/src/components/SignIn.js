@@ -1,10 +1,10 @@
+
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
-import { auth, db } from '../firebase'; // Make sure this path is correct
-import './SignUp.css'; // Ensure you have your CSS in a separate file
-import SignUp from './SignUp';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { auth, db } from '../firebase'; // Firebase setup
+import './SignUp.css'; // CSS for styling
+import { useNavigate } from 'react-router-dom'; // For navigation
 
 const SignIn = () => {
     const [formData, setFormData] = useState({
@@ -12,9 +12,8 @@ const SignIn = () => {
         password: '',
     });
     const [error, setError] = useState('');
-    const [userData, setUserData] = useState(null); // State to store user data
-
-    const navigate = useNavigate(); // Initialisation du hook
+    const [userData, setUserData] = useState(null); // To store user data
+    const navigate = useNavigate(); // Use the navigation hook
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -34,21 +33,26 @@ const SignIn = () => {
             const user = userCredential.user;
 
             // Fetch user data from Firestore
-            const userDoc = await getDoc(doc(db, 'users', user.uid)); // Ensure 'users' matches your collection name
+            const userDoc = await getDoc(doc(db, 'users', user.uid));
             if (userDoc.exists()) {
                 setUserData(userDoc.data()); // Store user data in state
-                console.log('User data:', userDoc.data());
-                
-            } 
-            navigate('/UserInterface');
+            }
+
+            // Redirect based on email (admin or regular user)
+            if (email === 'admin@admin.com') {
+                navigate('/AdminInterface'); // Admin page
+            } else {
+                navigate('/UserInterface'); // Normal user page
+            }
+
         } catch (err) {
             console.error('Error during sign in:', err);
-            setError(err.message);
+            setError(err.message); // Show error if login fails
         }
     };
 
     return (
-        <div className="signup-container"> {/* Keep original class name */}
+        <div className="signup-container">
             <h2>Sign In</h2>
             {error && <p className="error">{error}</p>}
             <form onSubmit={handleSubmit}>

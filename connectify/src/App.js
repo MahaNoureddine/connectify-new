@@ -8,6 +8,16 @@ import About from './components/About';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 import UserInterface from './components/UserInterface';
+import SellProductForm from './components/SellProductForm';
+import Panier from './components/Panier';
+import Canal from './components/Canal';
+import Payment from './components/Payment';
+import ProtectedRoute from "./components/ProtectedRoute";
+import AdminInterface from './components/AdminInterface';
+import AjouterUtilisateur from './components/AjouterUtilisateur';
+import SupprimerProduit from './components/SupprimerProduit';
+import SupprimerUtilisateur from './components/SupprimerUtilisateur';
+import ConsulterCanal from './components/ConsulterCanal';
 
 function App() {
   return (
@@ -23,6 +33,20 @@ function App() {
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/SignIn" element={<SignIn />} />
           <Route path="/UserInterface" element={<UserInterface />} />
+          <Route path="/SellProductForm" element={<SellProductForm />} />
+          <Route path="/Panier" element={<Panier />} />
+          <Route path="/Canal" element={<Canal />} />
+          <Route path="/Payment" element={<Payment />} />
+          <Route path="/AdminInterface" element={<AdminInterface />} />
+          <Route path="/AjouterUtilisateur" element={<AjouterUtilisateur />} />
+          <Route path="/SupprimerProduit" element={<SupprimerProduit />} />
+          <Route path="/SupprimerUtilisateur" element={<SupprimerUtilisateur />} />
+          <Route path="/ConsulterCanal" element={<ConsulterCanal />} />
+
+
+
+
+
         </Routes>
         
         <Footer />
