@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { getFunctions, httpsCallable } from "firebase/functions";
-import { auth } from "../firebase"; // Your existing Firebase auth config
-
+import { useNavigate } from "react-router-dom"; // React Router for navigation
 
 const Payment = () => {
   const [cardNumber, setCardNumber] = useState("");
@@ -10,6 +8,9 @@ const Payment = () => {
   const [cardHolder, setCardHolder] = useState("");
   const [cvv, setCvv] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+
+  // Using useNavigate hook for navigation
+  const navigate = useNavigate();
 
   // Fonction pour valider la date d'expiration
   const validateExpirationDate = () => {
@@ -28,11 +29,10 @@ const Payment = () => {
   const handlePayment = (e) => {
     e.preventDefault();
 
-    // Valider la date d'expiration avant de procéder
     if (!validateExpirationDate()) return;
 
-    // Logique de paiement ici (par exemple, validation des champs)
-    alert("Payment successful!");
+    // Navigate to TestEmail.js after form submission
+    navigate("/testemail"); // Adjust the route to match your React Router setup
   };
 
   return (
