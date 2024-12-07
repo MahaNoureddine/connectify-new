@@ -1,0 +1,39 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Allow read/write to users' own data
+    match /users/{userId} {
+      // Only authenticated users can access their own document
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Allow read/write to the basket subcollection of authenticated users
+    match /users/{userId}/basket/{basketId} {
+      // Only authenticated users can access their own basket subcollection
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Allow authenticated users to write products, but read is public
+    match /produit/{productId} {
+      // Public read access
+      allow read: if true;
+      // Only authenticated users can write to this collection
+      allow write: if request.auth != null;
+    }
+    
+    // Allow authenticated users to write and read messages
+    match /messages/{messageId} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Allow authenticated users to upload and read images in 'product-images'
+    match /product-images/{imageId} {
+      allow read, write: if request.auth != null; // Only authenticated users can upload and read images
+    }
+  }
+}
