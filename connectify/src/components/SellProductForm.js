@@ -106,16 +106,16 @@ const SellProductForm = ({ closeModal }) => {
             onChange={(e) => setCategory(e.target.value)}
           >
             <option value="">Select a category</option>
-            <option value="Électronique">Électronique</option>
-            <option value="Mode et vêtements">Mode et vêtements</option>
-            <option value="Maison et jardin">Maison et jardin</option>
-            <option value="Beauté et santé">Beauté et santé</option>
-            <option value="Jouets et loisirs">Jouets et loisirs</option>
-            <option value="Sport et plein air">Sport et plein air</option>
-            <option value="Livres et médias">Livres et médias</option>
-            <option value="Nourriture et boissons">Nourriture et boissons</option>
-            <option value="Voitures et accessoires">Voitures et accessoires</option>
-            <option value="Autres">Autres</option>
+            <option value="Électronique">Electronic</option>
+            <option value="Mode et vêtements">lothing and Apparel</option>
+            <option value="Maison et jardin">Home and Garden</option>
+            <option value="Beauté et santé">Beauty and Health</option>
+            <option value="Jouets et loisirs">Toys and Leisure</option>
+            <option value="Sport et plein air">Sports and Outdoors</option>
+            <option value="Livres et médias">Books and Media</option>
+            <option value="Nourriture et boissons">Food and Beverages</option>
+            <option value="Voitures et accessoires">Cars and Accessories</option>
+            <option value="Autres">Others</option>
           </select>
         </div>
 

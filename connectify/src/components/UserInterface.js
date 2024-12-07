@@ -192,15 +192,15 @@ const UserInterface = () => {
           {[
             "All",
             "Electronic",
-            "Mode et vêtements",
-            "Maison et jardin",
-            "Beauté et santé",
-            "Jouets et loisirs",
-            "Sport et plein air",
-            "Livres et médias",
-            "Nourriture et boissons",
-            "Voitures et accessoires",
-            "Autres",
+            "Clothing and Apparel",
+            "Home and Garden",
+            "Beauty and Health",
+            "Toys and Leisure",
+            "Sports and Outdoors",
+            "Books and Media",
+            "Food and Beverages",
+            "Cars and Accessories",
+            "Others",
           ].map((category) => (
             <li
               key={category}

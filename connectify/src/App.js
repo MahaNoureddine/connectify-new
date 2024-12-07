@@ -19,6 +19,7 @@ import SupprimerProduit from './components/SupprimerProduit';
 import SupprimerUtilisateur from './components/SupprimerUtilisateur';
 import ConsulterCanal from './components/ConsulterCanal';
 import TestEmail from "./components/TestEmail";
+import Dashboard from './components/Dashboard';
 import '@emailjs/browser';
 
 
@@ -46,6 +47,8 @@ function App() {
           <Route path="/SupprimerUtilisateur" element={<SupprimerUtilisateur />} />
           <Route path="/ConsulterCanal" element={<ConsulterCanal />} />
           <Route path="/TestEmail" element={<TestEmail />} />
+          <Route path="/Dashboard" element={<Dashboard />} />
+
 
 
 

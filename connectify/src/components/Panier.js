@@ -59,9 +59,19 @@ const Panier = () => {
   };
 
   // Navigate to the payment page
-  const handleGoToPayment = () => {
-    navigate("/payment");
-  };
+  // Navigate to the payment page with basket and total
+const handleGoToPayment = () => {
+  const total = calculateTotal();
+  navigate("/payment", { state: { basket, total } });
+};
+
+
+  // Navigate to the payment confirmation page with basket and total
+const handleGoToEmail = () => {
+  const total = calculateTotal();
+  navigate("/TestEmail", { state: { basket, total } });
+};
+
 
   return (
     <div
@@ -123,9 +133,10 @@ const Panier = () => {
           <div className="d-flex justify-content-between mt-4">
             <h4>Total: {calculateTotal()} TND</h4>
             <div>
-              <button className="btn btn-success" onClick={handleGoToPayment}>
-                Proceed to Payment
-              </button>
+            <button className="btn btn-success" onClick={handleGoToPayment}>
+              Proceed to Email Confirmation
+            </button>
+
             </div>
             <div>
               <Link

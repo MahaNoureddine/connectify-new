@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS import
 import './AdminInterface.css'; // Local CSS import
 import SupprimerUtilisateur from "./SupprimerUtilisateur"; // Import the SupprimerUtilisateur component
 import ConsulterCanal from './ConsulterCanal'; // Import the ConsulterCanal component
+import Dashboard from './Dashboard';
 
 const AdminInterface = () => {
   const [showAddUserModal, setShowAddUserModal] = useState(false); // State for "Ajouter Utilisateur" modal
@@ -15,6 +16,8 @@ const AdminInterface = () => {
   const [menuOpen, setMenuOpen] = useState(true); // State to toggle the menu
   const [showDeleteUserModal, setShowDeleteUserModal] = useState(false); // State for deleting user modal
   const [showCanalModal, setShowCanalModal] = useState(false); // State for "Consulter Canal" modal
+  const [showDashboardModal, setShowDashboardModal] = useState(false); // State for "Consulter Canal" modal
+
 
   const handleDeleteUser = () => {
     setShowDeleteUserModal(true);
@@ -32,7 +35,8 @@ const AdminInterface = () => {
   };
 
   const handleViewDashboard = () => {
-    alert('Voir Dashboard');
+    setShowDashboardModal(true); // Show the add user form
+    setShowDashboardModal(false); 
   };
 
   const handleConsultCanal = () => {
@@ -142,6 +146,15 @@ const AdminInterface = () => {
           <div className="modal-overlay" onClick={() => setShowDeleteUserModal(false)}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
               <SupprimerUtilisateur />
+            </div>
+          </div>
+        )}
+
+        {/* Render the SupprimerUtilisateur Modal if showDeleteUserModal is true */}
+        {showDashboardModal && (
+          <div className="modal-overlay" onClick={() => setShowDashboardModal(false)}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <Dashboard />
             </div>
           </div>
         )}

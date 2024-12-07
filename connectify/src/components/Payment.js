@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useNavigate } from "react-router-dom"; // React Router for navigation
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Payment = () => {
+  const { state } = useLocation();
+  const { basket, total } = state || {}; // Retrieve basket and total from location state
+
   const [cardNumber, setCardNumber] = useState("");
   const [expirationDate, setExpirationDate] = useState("");
   const [cardHolder, setCardHolder] = useState("");
@@ -31,8 +34,13 @@ const Payment = () => {
 
     if (!validateExpirationDate()) return;
 
+    if (!basket || !total) {
+      alert("No items in basket or total amount not found.");
+      return;
+    }
+
     // Navigate to TestEmail.js after form submission
-    navigate("/testemail"); // Adjust the route to match your React Router setup
+    navigate("/TestEmail", { state: { basket, total } });
   };
 
   return (
