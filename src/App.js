@@ -23,6 +23,7 @@ import Dashboard from './components/Dashboard';
 import '@emailjs/browser';
 import Avis from './components/Avis';
 import AlertModal from './components/AlertModal';
+import Profile from './components/Profile';
 
 
 function App() {
@@ -52,6 +53,8 @@ function App() {
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/Avis" element={<Avis />} />
           <Route path="/AlertModal" element={<AlertModal />} />
+          <Route path="/Profile" element={<Profile />} />
+
 
 
 
