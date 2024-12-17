@@ -21,6 +21,8 @@ import ConsulterCanal from './components/ConsulterCanal';
 import TestEmail from "./components/TestEmail";
 import Dashboard from './components/Dashboard';
 import '@emailjs/browser';
+import Avis from './components/Avis';
+import AlertModal from './components/AlertModal';
 
 
 function App() {
@@ -48,6 +50,10 @@ function App() {
           <Route path="/ConsulterCanal" element={<ConsulterCanal />} />
           <Route path="/TestEmail" element={<TestEmail />} />
           <Route path="/Dashboard" element={<Dashboard />} />
+          <Route path="/Avis" element={<Avis />} />
+          <Route path="/AlertModal" element={<AlertModal />} />
+
+
 
 
 
