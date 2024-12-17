@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect ,useRef} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
@@ -17,6 +17,8 @@ const UserInterface = () => {
   const [productQuantities, setProductQuantities] = useState({});
   const [addedMessage, setAddedMessage] = useState({});
   const [disabledButtons, setDisabledButtons] = useState({});
+  const quantitiesInitialized = useRef(false); // Track initialization
+
   
   const user = auth.currentUser;
 
@@ -32,23 +34,24 @@ const UserInterface = () => {
           id: doc.id,
         }));
         setProduits(produitsList);
-  
-        const initialQuantities = produitsList.reduce((acc, product) => {
-          acc[product.id] = { quantity: 1, maxQuantity: product.quantity };
-          return acc;
-        }, {});
-        setProductQuantities(initialQuantities);
-  
-        if (auth.currentUser) {
-          fetchBasket();
+
+        // Initialize product quantities only once
+        if (!quantitiesInitialized.current) {
+          const initialQuantities = produitsList.reduce((acc, product) => {
+            acc[product.id] = { quantity: 1, maxQuantity: product.quantity || 1 };
+            return acc;
+          }, {});
+          setProductQuantities(initialQuantities);
+          quantitiesInitialized.current = true; // Mark as initialized
         }
       } catch (error) {
         console.error("Error fetching products:", error);
       }
     };
-  
+
     fetchProduits();
-  }, [basket]);
+  }, []);
+
   
   const fetchBasket = async () => {
     if (auth.currentUser) {
@@ -124,21 +127,21 @@ const UserInterface = () => {
       ? produits.filter((produit) => produit.category === categorie)
       : produits;
 
-  const handleQuantityChange = (id, change) => {
-    setProductQuantities((prev) => {
-      const currentQuantity = prev[id]?.quantity || 1;
-      const productMaxQuantity = produits.find((prod) => prod.id === id)?.quantity || 1;
-      const newQuantity = currentQuantity + change;
-
-      return {
-        ...prev,
-        [id]: {
-          ...prev[id],
-          quantity: Math.max(1, Math.min(newQuantity, productMaxQuantity)),
-        },
+      const handleQuantityChange = (id, change) => {
+        setProductQuantities((prev) => {
+          const currentQuantity = prev[id]?.quantity || 1;
+          const productMaxQuantity = prev[id]?.maxQuantity || 1;
+          const newQuantity = Math.max(1, Math.min(currentQuantity + change, productMaxQuantity));
+    
+          return {
+            ...prev,
+            [id]: {
+              ...prev[id],
+              quantity: newQuantity,
+            },
+          };
+        });
       };
-    });
-  };
 
   return (
     <div className="container my-5">
