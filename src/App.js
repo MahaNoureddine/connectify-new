@@ -24,6 +24,7 @@ import '@emailjs/browser';
 import Avis from './components/Avis';
 import AlertModal from './components/AlertModal';
 import Profile from './components/Profile';
+import GererAvis from './components/GererAvis';
 
 
 function App() {
@@ -54,6 +55,8 @@ function App() {
           <Route path="/Avis" element={<Avis />} />
           <Route path="/AlertModal" element={<AlertModal />} />
           <Route path="/Profile" element={<Profile />} />
+          <Route path="/Profile" element={<GererAvis />} />
+
 
 
 
