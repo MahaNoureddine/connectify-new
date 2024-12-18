@@ -8,6 +8,7 @@ import './AdminInterface.css'; // Local CSS import
 import SupprimerUtilisateur from "./SupprimerUtilisateur"; // Import the SupprimerUtilisateur component
 import ConsulterCanal from './ConsulterCanal'; // Import the ConsulterCanal component
 import Dashboard from './Dashboard';
+import GererAvis from './GererAvis';
 
 const AdminInterface = () => {
   const [showAddUserModal, setShowAddUserModal] = useState(false); // State for "Ajouter Utilisateur" modal
@@ -17,6 +18,7 @@ const AdminInterface = () => {
   const [showDeleteUserModal, setShowDeleteUserModal] = useState(false); // State for deleting user modal
   const [showCanalModal, setShowCanalModal] = useState(false); // State for "Consulter Canal" modal
   const [showDashboardModal, setShowDashboardModal] = useState(false); // State for "Consulter Canal" modal
+  const[showAvisModal, setShowAvisModal]=useState(false);
 
 
   const handleDeleteUser = () => {
@@ -36,8 +38,13 @@ const AdminInterface = () => {
 
   const handleViewDashboard = () => {
     setShowDashboardModal(true); // Show the add user form
-    setShowDashboardModal(false); 
+    
   };
+  const handleGererAvis = () => {
+    setShowAvisModal(true); // Set to true
+    
+  };
+  
 
   const handleConsultCanal = () => {
     setShowCanalModal(true); // Open the "Consulter Canal" modal
@@ -59,6 +66,8 @@ const AdminInterface = () => {
     setShowDeleteModal(false); // Close the "SupprimerProduit" modal
   };
 
+ 
+
   return (
     <div className="container-fluid vh-100 d-flex">
       {/* Sidebar */}
@@ -73,37 +82,43 @@ const AdminInterface = () => {
           <li className="menu-item">
             <button className="menu-link" onClick={handleAddUser}>
               <i className="bi bi-person-plus"></i>
-              {menuOpen && <span>Ajouter Utilisateur</span>}
+              {menuOpen && <span>Add User</span>}
             </button>
           </li>
           <li className="menu-item">
             <button className="menu-link" onClick={handleDeleteUser}>
               <i className="bi bi-person-dash"></i>
-              {menuOpen && <span>Supprimer Utilisateur</span>}
+              {menuOpen && <span>Delete User</span>}
             </button>
           </li>
           <li className="menu-item">
             <button className="menu-link" onClick={handleAddProduct}>
               <i className="bi bi-bag-plus"></i>
-              {menuOpen && <span>Ajouter Produit</span>}
+              {menuOpen && <span>Add Product</span>}
             </button>
           </li>
           <li className="menu-item">
             <button className="menu-link" onClick={openDeleteModal}>
               <i className="bi bi-bag-dash"></i>
-              {menuOpen && <span>Supprimer Produit</span>}
+              {menuOpen && <span>Delete Product</span>}
             </button>
           </li>
           <li className="menu-item">
             <button className="menu-link" onClick={handleViewDashboard}>
               <i className="bi bi-graph-up"></i>
-              {menuOpen && <span>Voir Dashboard</span>}
+              {menuOpen && <span> Dashboard</span>}
             </button>
           </li>
           <li className="menu-item">
             <button className="menu-link" onClick={handleConsultCanal}>
               <i className="bi bi-chat-dots"></i>
-              {menuOpen && <span>Consulter Canal</span>}
+              {menuOpen && <span>Handle discussion channel</span>}
+            </button>
+          </li>
+          <li className="menu-item">
+            <button className="menu-link" onClick={handleGererAvis}>
+              <i className="bi bi-chat-dots"></i>
+              {menuOpen && <span>Handle reviews</span>}
             </button>
           </li>
         </ul>
@@ -164,6 +179,14 @@ const AdminInterface = () => {
           <div className="modal-overlay" onClick={() => setShowCanalModal(false)}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
               <ConsulterCanal />
+            </div>
+          </div>
+        )}
+
+        {showAvisModal && (
+          <div className="modal-overlay" onClick={() => setShowAvisModal(false)}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <GererAvis />
             </div>
           </div>
         )}
